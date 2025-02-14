@@ -52,7 +52,7 @@
             getNotes().forEach((note, index) => {
                 noteList.innerHTML += `
                     <li class="flex justify-between bg-gray-200 p-2 rounded">
-                        <span>${note}</span>
+                        <pre class="text-wrap">${note}</pre>
                         <button onclick="deleteNote(${index})" class="text-red-500">❌</button>
                     </li>`;
             });
