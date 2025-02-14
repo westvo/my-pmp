@@ -49,12 +49,6 @@
             document.getElementById("pauseBtn").textContent = isPaused ? "⏵︎" : "⏸︎";
         });
 
-        document.getElementById("replayBtn").addEventListener("click", () => {
-            isPaused = false;
-            document.getElementById("pauseBtn").textContent = "Pause";
-            if (!interval) startCountdown();
-        });
-
         updateDisplay();
         startCountdown();
   
