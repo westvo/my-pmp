@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full">
+        <h2 class="text-2xl font-bold mb-4">📝 Note App</h2>
+        
+        <!-- Input -->
+        <div>
+            <textarea type="text" id="noteInput" placeholder="Nhập ghi chú..." 
+                class="w-full flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none" ></textarea>
+            
+        </div>
+        <button onclick="addNote()" class="bg-blue-500 text-white px-4 rounded-lg">Thêm</button>
+
+        <!-- List -->
+        <ul id="noteList" class="mt-4 space-y-2"></ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadNotes);
+
+        function addNote() {
+            const input = document.getElementById("noteInput");
+            const text = input.value.trim();
+            if (text === "") return;
+
+            const notes = getNotes();
+            notes.push(text);
+            saveNotes(notes);
+            renderNotes();
+            input.value = "";
+        }
+
+        function getNotes() {
+            return JSON.parse(localStorage.getItem("notes")) || [];
+        }
+
+        function saveNotes(notes) {
+            localStorage.setItem("notes", JSON.stringify(notes));
+        }
+
+        function renderNotes() {
+            const noteList = document.getElementById("noteList");
+            noteList.innerHTML = "";
+            getNotes().forEach((note, index) => {
+                noteList.innerHTML += `
+                    <li class="flex justify-between bg-gray-200 p-2 rounded">
+                        <span>${note}</span>
+                        <button onclick="deleteNote(${index})" class="text-red-500">❌</button>
+                    </li>`;
+            });
+        }
+
+        function deleteNote(index) {
+            const notes = getNotes();
+            notes.splice(index, 1);
+            saveNotes(notes);
+            renderNotes();
+        }
+
+        function loadNotes() {
+            renderNotes();
+        }
+    </script>
+
+</body>
+</html>
