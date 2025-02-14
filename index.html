@@ -17,7 +17,6 @@
         <p id="timer" class="text-2xl font-mono">04:00:00</p>
         <div class="space-x-4">
             <button id="pauseBtn" class="px-4 py-1 bg-yellow-500 rounded-lg">⏸︎</button>
-            <button id="replayBtn" class="px-4 py-1 bg-green-500 rounded-lg">⏵︎</button>
         </div>
     </div>
 
@@ -47,7 +46,7 @@
 
         document.getElementById("pauseBtn").addEventListener("click", () => {
             isPaused = !isPaused;
-            document.getElementById("pauseBtn").textContent = isPaused ? "Resume" : "Pause";
+            document.getElementById("pauseBtn").textContent = isPaused ? "⏵︎" : "⏸︎";
         });
 
         document.getElementById("replayBtn").addEventListener("click", () => {
