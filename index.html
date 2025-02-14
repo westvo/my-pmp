@@ -11,8 +11,62 @@
       <h1 class="text-2xl font-bold text-center mb-4">Q&A Section</h1>
       <div id="qa-container"></div>
     </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-900 text-white">
+    <div class="fixed r-0">
+        <h1 class="text-4xl font-bold mb-4">Countdown Timer</h1>
+        <p id="timer" class="text-5xl font-mono mb-6">04:00:00</p>
+        <div class="space-x-4">
+            <button id="pauseBtn" class="px-4 py-2 bg-yellow-500 rounded-lg">Pause</button>
+            <button id="replayBtn" class="px-4 py-2 bg-green-500 rounded-lg">Replay</button>
+        </div>
+    </div>
 
     <script>
+        let totalSeconds = 4 * 60 * 60; // 4 giờ tính bằng giây
+        let isPaused = false;
+        let interval;
+
+        function updateDisplay() {
+            let hours = Math.floor(totalSeconds / 3600);
+            let minutes = Math.floor((totalSeconds % 3600) / 60);
+            let seconds = totalSeconds % 60;
+            document.getElementById("timer").textContent = 
+                String(hours).padStart(2, '0') + ":" +
+                String(minutes).padStart(2, '0') + ":" +
+                String(seconds).padStart(2, '0');
+        }
+
+        function startCountdown() {
+            interval = setInterval(() => {
+                if (!isPaused && totalSeconds > 0) {
+                    totalSeconds--;
+                    updateDisplay();
+                }
+            }, 1000);
+        }
+
+        document.getElementById("pauseBtn").addEventListener("click", () => {
+            isPaused = !isPaused;
+            document.getElementById("pauseBtn").textContent = isPaused ? "Resume" : "Pause";
+        });
+
+        document.getElementById("replayBtn").addEventListener("click", () => {
+            isPaused = false;
+            document.getElementById("pauseBtn").textContent = "Pause";
+            if (!interval) startCountdown();
+        });
+
+        updateDisplay();
+        startCountdown();
+  
       document.addEventListener("DOMContentLoaded", async () => {
         try {
           const container = document.getElementById("qa-container");
