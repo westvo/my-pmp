@@ -19,11 +19,15 @@
             <button id="pauseBtn" class="px-4 py-1 bg-yellow-500 rounded-lg">⏸︎</button>
         </div>
     </div>
+    <div class="fixed left-4 bg-white dark:bg-gray-900 text-black dark:text-white p-4 rounded-lg border top-0 text-center">
+      <p id="correctCounter" class="text-2xl font-mono">Correct Answers: 0</p>
+  </div>
 
     <script>
         let totalSeconds = 4 * 60 * 60; // 4 giờ tính bằng giây
         let isPaused = false;
         let interval;
+        let correctAnswers = 0;
 
         function updateDisplay() {
             let hours = Math.floor(totalSeconds / 3600);
@@ -107,6 +111,10 @@
         }
       });
 
+        function updateCorrectCounter() {
+            document.getElementById("correctCounter").textContent = `Correct Answers: ${correctAnswers}`;
+        }
+
       function checkAnswer(element, selected, correct) {
         console.log(element);
         const parent = element.parentElement;
@@ -121,8 +129,11 @@
           element.className = "text-green-700 font-bold cursor-pointer";
           // Show explanation
           parent.nextElementSibling.classList.remove("hidden");
+          correctAnswers++;
+          updateCorrectCounter();
         } else {
           element.className = "text-red-700 font-bold cursor-pointer";
+          element.style.pointerEvents = "none"; // Disable clicking
         }
       }
 
