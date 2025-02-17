@@ -120,16 +120,20 @@
         const parent = element.parentElement;
 
         // Reset all answer colors
-        // parent.querySelectorAll("li").forEach((el) => {
-        //   el.className = "text-gray-700 cursor-pointer";
-        // });
+        hasFailed = parent.querySelectorAll("li").forEach((el) => {
+           el.className = "text-gray-700 cursor-pointer";
+        });
 
+        console.log(hasFailed)
         // Change color based on correctness
         if (correct.includes(selected)) {
           element.className = "text-green-700 font-bold cursor-pointer";
           // Show explanation
           parent.nextElementSibling.classList.remove("hidden");
           correctAnswers++;
+          if (!hasFailed) {
+            updateCorrectCounter();
+          }
           updateCorrectCounter();
         } else {
           element.className = "text-red-700 font-bold cursor-pointer";
