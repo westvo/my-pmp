@@ -120,20 +120,20 @@
         const parent = element.parentElement;
 
         // Reset all answer colors
-        const hasFailed = parent.querySelectorAll("li").forEach((el) => {
-           el.className = "text-green-700 font-bold cursor-pointer" ||  "text-red-700 font-bold cursor-pointer";
-        });
+        // const hasFailed = parent.querySelectorAll("li").forEach((el) => {
+        //    el.className = "text-green-700 font-bold cursor-pointer" ||  "text-red-700 font-bold cursor-pointer";
+        // });
 
-        console.log(hasFailed)
+        // console.log(hasFailed)
         // Change color based on correctness
         if (correct.includes(selected)) {
           element.className = "text-green-700 font-bold cursor-pointer";
           // Show explanation
           parent.nextElementSibling.classList.remove("hidden");
-          if (!hasFailed) {
+          // if (!hasFailed) {
             correctAnswers++;
             updateCorrectCounter();
-          }
+          // }
           updateCorrectCounter();
         } else {
           element.className = "text-red-700 font-bold cursor-pointer";
