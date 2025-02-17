@@ -120,8 +120,8 @@
         const parent = element.parentElement;
 
         // Reset all answer colors
-        hasFailed = parent.querySelectorAll("li").forEach((el) => {
-           el.className = "text-gray-700 cursor-pointer";
+        const hasFailed = parent.querySelectorAll("li").forEach((el) => {
+           el.className = "text-red-700 cursor-pointer" ||  "text-green-700 cursor-pointer";
         });
 
         console.log(hasFailed)
