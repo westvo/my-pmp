@@ -69,29 +69,29 @@
               <ul class="list-none mt-2">
                   <li onclick="checkAnswer(this, \'${"A"}\', \'${
               item.correct
-            }\')" class="border px-2 rounded cursor-pointer text-${
+            }\')" class="my-1 border  border-gray-100  px-2 rounded cursor-pointer text-${
               item.correct.includes("A") ? "white" : "white"
             }-700">A. ${item.answer1}</li>
                   <li onclick="checkAnswer(this, \'${"B"}\', \'${
               item.correct
-            }\')" class="border px-2 rounded cursor-pointer text-${
+            }\')" class="my-1 border border-gray-100  px-2 rounded cursor-pointer text-${
               item.correct.includes("B") ? "white" : "white"
             }-700">B. ${item.answer2}</li>
                   <li onclick="checkAnswer(this, \'${"C"}\', \'${
               item.correct
-            }\')" class="border px-2 rounded cursor-pointer text-${
+            }\')" class="my-1 border border-gray-100  px-2 rounded cursor-pointer text-${
               item.correct.includes("C") ? "white" : "white"
             }-700">C. ${item.answer3}</li>
                   <li onclick="checkAnswer(this, \'${"D"}\', \'${
               item.correct
-            }\')" class="border px-2 rounded cursor-pointer text-${
+            }\')" class="my-1 border  border-gray-100 px-2 rounded cursor-pointer text-${
               item.correct.includes("D") ? "white" : "white"
             }-700">D. ${item.answer4}</li>
                  ${
                    item.answer5 !== " "
                      ? `<li onclick="checkAnswer(this, \'${"E"}\', \'${
                          item.correct
-                       }\')" class="border px-2 rounded cursor-pointer text-${
+                       }\')" class="my-1 border border-gray-100 px-2 rounded cursor-pointer text-${
                          item.correct.includes("E") ? "white" : "white"
                        }-700">E. ${item.answer5}</li>`
                      : ""
@@ -125,13 +125,13 @@
         // console.log(hasFailed)
         // Change color based on correctness
         if (correct.includes(selected)) {
-          element.className = " border border-green-500 px-2 roundedtext-green-700 font-bold cursor-pointer";
+          element.className = "my-1 border border-green-500 px-2 rounded text-green-700 font-bold cursor-pointer";
           // Show explanation
           parent.nextElementSibling.classList.remove("hidden");
           correctAnswers++;
           updateCorrectCounter();
         } else {
-          element.className = "border border-red-500 px-2 rounded text-red-700 font-bold cursor-pointer";
+          element.className = "my-1 border border-red-500 px-2 rounded text-red-700 font-bold cursor-pointer";
           element.style.pointerEvents = "none"; // Disable clicking
         }
       }
