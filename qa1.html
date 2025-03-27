@@ -125,13 +125,13 @@
         // console.log(hasFailed)
         // Change color based on correctness
         if (correct.includes(selected)) {
-          element.className = "text-green-700 font-bold cursor-pointer";
+          element.className = " border-green-500 text-green-700 font-bold cursor-pointer";
           // Show explanation
           parent.nextElementSibling.classList.remove("hidden");
           correctAnswers++;
           updateCorrectCounter();
         } else {
-          element.className = "text-red-700 font-bold cursor-pointer";
+          element.className = "border border-red-500 px-2 rounded text-red-700 font-bold cursor-pointer";
           element.style.pointerEvents = "none"; // Disable clicking
         }
       }
