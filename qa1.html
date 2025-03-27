@@ -66,32 +66,32 @@
               <p class="text-lg font-semibold">Q${index + 1}: ${
               item.question
             }</p>
-              <ul class="list-none pl-5 mt-2">
+              <ul class="list-none mt-2">
                   <li onclick="checkAnswer(this, \'${"A"}\', \'${
               item.correct
-            }\')" class=" cursor-pointer text-${
+            }\')" class="border px-2 rounded cursor-pointer text-${
               item.correct.includes("A") ? "white" : "white"
             }-700">A. ${item.answer1}</li>
                   <li onclick="checkAnswer(this, \'${"B"}\', \'${
               item.correct
-            }\')" class=" cursor-pointer text-${
+            }\')" class="border px-2 rounded cursor-pointer text-${
               item.correct.includes("B") ? "white" : "white"
             }-700">B. ${item.answer2}</li>
                   <li onclick="checkAnswer(this, \'${"C"}\', \'${
               item.correct
-            }\')" class=" cursor-pointer text-${
+            }\')" class="border px-2 rounded cursor-pointer text-${
               item.correct.includes("C") ? "white" : "white"
             }-700">C. ${item.answer3}</li>
                   <li onclick="checkAnswer(this, \'${"D"}\', \'${
               item.correct
-            }\')" class=" cursor-pointer text-${
+            }\')" class="border px-2 rounded cursor-pointer text-${
               item.correct.includes("D") ? "white" : "white"
             }-700">D. ${item.answer4}</li>
                  ${
                    item.answer5 !== " "
                      ? `<li onclick="checkAnswer(this, \'${"E"}\', \'${
                          item.correct
-                       }\')" class=" cursor-pointer text-${
+                       }\')" class="border px-2 rounded cursor-pointer text-${
                          item.correct.includes("E") ? "white" : "white"
                        }-700">E. ${item.answer5}</li>`
                      : ""
