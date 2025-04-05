@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Q&A Webview</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Google Font --></head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
   </head>
   <body class="bg-white dark:bg-gray-900 text-black dark:text-white p-4 rounded-lg p-5">
-    <div class="mx-auto bg-white dark:bg-gray-900 text-black dark:text-white p-4 rounded-lg  shadow-md rounded-lg p-6">
+    <div class="mx-auto bg-white dark:bg-gray-900 text-black dark:text-white p-4 rounded-lg shadow-md rounded-lg p-6">
       <h1 class="text-2xl font-bold text-center mb-4">Q&A Section</h1>
       <div id="qa-container"></div>
     </div> 
 
-    
-    <div class="fixed hidden right-4 bg-white dark:bg-gray-900 text-black dark:text-white p-4 rounded-lg  border top-0 text-center"> 
+    <div class="fixed hidden right-4 bg-white dark:bg-gray-900 text-black dark:text-white p-4 rounded-lg border top-0 text-center"> 
       <p id="correctCounter" class="text-xl font-mono">Correct Answers: 0</p> 
       <p id="timer" class="text-2xl font-mono">04:00:00</p>
         <div class="space-x-4">
@@ -22,16 +28,10 @@
     </div>
 
     <script>
-        let totalSeconds = 4 * 60 * 60; // 4 giờ tính bằng giây
-        let isPaused = false;
-        let interval;
-        let correctAnswers = 0;
-
-        function updateDisplay() {
-            let hours = Math.floor(totalSeconds / 3600);
-            let minutes = Math.floor((totalSeconds % 3600) / 60);
-            let seconds = totalSeconds % 60;
-            document.getElementById("timer").textContent = 
+      // Your existing JavaScript code
+    </script>
+  </body>
+</html>
                 String(hours).padStart(2, '0') + ":" +
                 String(minutes).padStart(2, '0') + ":" +
                 String(seconds).padStart(2, '0');
